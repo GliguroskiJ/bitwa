@@ -6,6 +6,7 @@
         </div>
         <div class="col-6 text-center">
             <h1>Evžen2</h1>
+            <h1>Evžen2</h1>
         </div>
     </div>
 </template>
