@@ -8,14 +8,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                    <li class="nav-list">
+                    <li class="nav-item">
                         <router-link class="nav-link px-lg-3 py-3 py-lg-4" to="/">
                             <em class="bi-house"/>
                             Home
                         </router-link>
+                    </li>
+                    <li class="nav-item">
                         <router-link class="nav-link px-lg-3 py-3 py-lg-4" to="/about">
-                            <em class="bi-apple"/>
+                            <em class="bi-info-circle-fill"/>
                             About
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link px-lg-3 py-3 py-lg-4" to="/new-article">
+                            <em class="bi-plus-circle"/>
+                            New article
                         </router-link>
                     </li>
                 </ul>
