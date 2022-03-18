@@ -7,7 +7,7 @@
                 <em class="bi-list"/>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <ul class="navbar-nav ms-auto py-4 pynp-lg-0">
                     <li class="nav-item">
                         <router-link class="nav-link px-lg-3 py-3 py-lg-4" to="/">
                             <em class="bi-house"/>
