@@ -7,7 +7,7 @@ let articles = [
         image: 'https://picsum.photos/seed/picsum/500',
         title: "Title",
         date: new Date(),
-        text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit.`
+        text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit - lol.`
     },
     {
         id: 2,
