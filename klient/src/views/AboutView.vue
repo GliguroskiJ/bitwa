@@ -1,13 +1,14 @@
 <template>
-    <div class="row">
-        <div class="col-6 text-center">
-            <h1>lol</h1>
-            <img src="https://img.assets-finance-media.cz//data/newsimg/new/auto-111.jpg">
+    <div class="row" style="padding: 20px 5px 0 5px">
+        <div class="col text-center">
+            <h2>About me</h2>
         </div>
-        <div class="col-6 text-center">
-            <h1>lol</h1>
-            <h1>lol</h1>
+        <div class="col text-center">
+            <h2>About the company</h2>
         </div>
+    </div>
+    <div class="row" style="height: 800px">
+
     </div>
 </template>
 
