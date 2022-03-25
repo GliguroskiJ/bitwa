@@ -49,18 +49,20 @@ router.post('/', (req, res, next) => {
     console.table(articles);
     res.send({});
 });
-router.patch("/id", (req, res) => {
+router.patch("/:id", (req, res) => {
     const body = req.body;
     const id = req.params.id;
+
     if (id) {
         const article = articles.find((a) => a.id === Number.parseInt(id));
         if(article){
             article.title = body.title;
+            console.table(articles);
+            res.send({});
         }
         else{
             res.sendStatus(404)
         }
-        res.send(article);
     } else {
         res.sendStatus(404);
     }
