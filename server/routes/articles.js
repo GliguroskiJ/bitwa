@@ -7,30 +7,21 @@ const articles = [
         image: 'https://picsum.photos/seed/picsum/500',
         title: "Title",
         date: new Date(),
-        text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam egestas wisi a erat.
-Integer tempor. Pellentesque ipsum. Integer malesuada. Vestibulum fermentum tortor id mi. Aenean placerat.
-Pellentesque arcu. Phasellus rhoncus.
-`
+        text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit.`
     },
     {
         id: 2,
         image: 'https://picsum.photos/seed/picsum/500',
         title: "Title",
         date: new Date(),
-        text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam egestas wisi a erat.
-Integer tempor. Pellentesque ipsum. Integer malesuada. Vestibulum fermentum tortor id mi. Aenean placerat.
-Pellentesque arcu. Phasellus rhoncus.
-`
+        text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit.`
     },
     {
         id: 3,
         image: 'https://picsum.photos/seed/picsum/500',
         title: "Title",
         date: new Date(),
-        text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam egestas wisi a erat.
-Integer tempor. Pellentesque ipsum. Integer malesuada. Vestibulum fermentum tortor id mi. Aenean placerat.
-Pellentesque arcu. Phasellus rhoncus.
-`
+        text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit.`
     },
 ];
 router.get("/", function (req, res, next) {
