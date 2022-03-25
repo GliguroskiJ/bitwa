@@ -29,7 +29,7 @@ router.get("/", function (req, res, next) {
 });
 router.get('/:id', (req, res, next) => {
     const id = req.params.id
-    console.debug(req.params);
+
     if (id) {
         const article = articles.find((a) => a.id === Number.parseInt(id));
         res.send(article);
@@ -39,6 +39,7 @@ router.get('/:id', (req, res, next) => {
 });
 router.post('/', (req, res, next) => {
     const body = req.body;
+    const done = "Post done";
     const article = {
         id: articles.length + 1,
         title: body.title,
@@ -47,7 +48,7 @@ router.post('/', (req, res, next) => {
     }
     articles.push(article);
     console.table(articles);
-    res.send({});
+    res.send(done);
 });
 router.patch("/:id", (req, res) => {
     const body = req.body;
@@ -55,10 +56,11 @@ router.patch("/:id", (req, res) => {
 
     if (id) {
         const article = articles.find((a) => a.id === Number.parseInt(id));
+        const done = "Update done";
         if (article) {
             article.title = body.title;
             console.table(articles);
-            res.send({});
+            res.send(done);
         } else {
             res.sendStatus(404)
         }
@@ -68,10 +70,11 @@ router.patch("/:id", (req, res) => {
 });
 router.delete("/:id", (req, res) => {
     const id = req.params.id;
+    const done = "Delete done";
     if (id) {
         articles = articles.filter((a) => a.id !== Number.parseInt(id));
-        res.sendStatus(200);
         console.table(articles);
+        res.send(done);
     } else {
         res.sendStatus(404);
     }
