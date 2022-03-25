@@ -49,7 +49,7 @@ router.get('/:id', (req, res, next) => {
 router.post('/', (req, res, next) => {
     const body = req.body;
     const article = {
-        id: articles.count,
+        id: articles.count+1,
         title: body.title,
         text: body.text,
         date: new Date()
