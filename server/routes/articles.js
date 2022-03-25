@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const articles = [
+let articles = [
     {
         id: 1,
         image: 'https://picsum.photos/seed/picsum/500',
@@ -40,7 +40,7 @@ router.get('/:id', (req, res, next) => {
 router.post('/', (req, res, next) => {
     const body = req.body;
     const article = {
-        id: articles.length+1,
+        id: articles.length + 1,
         title: body.title,
         text: body.text,
         date: new Date()
@@ -55,14 +55,23 @@ router.patch("/:id", (req, res) => {
 
     if (id) {
         const article = articles.find((a) => a.id === Number.parseInt(id));
-        if(article){
+        if (article) {
             article.title = body.title;
             console.table(articles);
             res.send({});
-        }
-        else{
+        } else {
             res.sendStatus(404)
         }
+    } else {
+        res.sendStatus(404);
+    }
+});
+router.delete("/:id", (req, res) => {
+    const id = req.params.id;
+    if (id) {
+        articles = articles.filter((a) => a.id !== Number.parseInt(id));
+        res.sendStatus(200);
+        console.table(articles);
     } else {
         res.sendStatus(404);
     }
