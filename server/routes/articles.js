@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
 let articles = [
     {
@@ -24,10 +24,10 @@ let articles = [
         text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit.`
     },
 ];
-router.get("/", function (req, res, next) {
+router.get("/", function (req, res) {
     res.send(articles);
 });
-router.get('/:id', (req, res, next) => {
+router.get('/:id', (req, res) => {
     const id = req.params.id
 
     if (id) {
@@ -37,7 +37,7 @@ router.get('/:id', (req, res, next) => {
         res.send("Not Found");
     }
 });
-router.post('/', (req, res, next) => {
+router.post('/', (req, res) => {
     const body = req.body;
     const done = "Post done";
     const article = {
