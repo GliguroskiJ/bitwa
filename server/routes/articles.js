@@ -31,9 +31,9 @@ let articles = [
     },
 ];
 router.get("/", function (req, res) {
-    const articlesdb = db.prepare('SELECT * FROM ARTICLE').all();
-    console.log(articlesdb);
-    res.send(articlesdb);
+    const article_getAll = db.prepare('SELECT * FROM ARTICLE').all();
+    console.log(article_getAll);
+    res.send(article_getAll);
 });
 router.get('/:id', (req, res) => {
     const id = req.params.id
@@ -83,13 +83,16 @@ router.patch("/:id", (req, res) => {
 });
 router.delete("/:id", (req, res) => {
     const id = req.params.id;
-    const done = "Delete done";
-    if (id) {
+    /*const done = "Delete done";
+    /*if (id) {
         articles = articles.filter((a) => a.id !== Number.parseInt(id));
         console.table(articles);
         res.send(done);
     } else {
         res.sendStatus(404);
-    }
+    }*/
+    const article_delete = db.prepare('DELETE FROM ARTICLE WHERE ID = ?').run(id);
+    console.log(article_delete);
+    res.send(article_delete);
 });
 module.exports = router;
