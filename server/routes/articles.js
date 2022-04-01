@@ -1,11 +1,11 @@
 let express = require('express');
 let router = express.Router();
-var debug = require('debug')('router:articles');
+let debug = require('debug')('router:articles');
 
 const options = {
     verbose: console.debug
 }
-const db = require('better-sqlite3')('foobar.db', options);
+const db = require('better-sqlite3')('articles.sqlite', options);
 
 let articles = [
     {
@@ -31,32 +31,37 @@ let articles = [
     },
 ];
 router.get("/", function (req, res) {
-    const articles = db.prepare('SELECT * FROM ARTICLE').all();
-    console.log(articles);
-    res.send(articles);
+    const articlesdb = db.prepare('SELECT * FROM ARTICLE').all();
+    console.log(articlesdb);
+    res.send(articlesdb);
 });
 router.get('/:id', (req, res) => {
     const id = req.params.id
-
-    if (id) {
+    /*if (id) {
         const article = articles.find((a) => a.id === Number.parseInt(id));
         res.send(article);
     } else {
         res.send("Not Found");
-    }
+    }*/
+    const article_get = db.prepare('SELECT ID, TITLE, DATE, TEXT FROM ARTICLE WHERE ID = ?').get(id);
+    console.log(article_get);
+    res.send(article_get);
 });
 router.post('/', (req, res) => {
     const body = req.body;
-    const done = "Post done";
     const article = {
-        id: articles.length + 1,
-        title: body.title,
-        text: body.text,
-        date: new Date()
+        IMAGE: body.image,
+        TITLE: body.title,
+        TEXT: body.text,
+        DATE: body.date
     }
-    articles.push(article);
+    /*articles.push(article);
     console.table(articles);
-    res.send(done);
+    res.send(done);*/
+    const article_get = db.prepare('INSERT INTO ARTICLE (IMAGE, TITLE, TEXT, DATE) VALUES (?, ?, ?, ?)');
+    article_get.run(article.IMAGE, article.TITLE, article.TEXT, article.DATE);
+    console.log(article_get);
+    res.send(article);
 });
 router.patch("/:id", (req, res) => {
     const body = req.body;
