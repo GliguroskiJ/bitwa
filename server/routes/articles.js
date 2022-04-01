@@ -1,5 +1,11 @@
 let express = require('express');
 let router = express.Router();
+var debug = require('debug')('router:articles');
+
+const options = {
+    verbose: console.debug
+}
+const db = require('better-sqlite3')('foobar.db', options);
 
 let articles = [
     {
@@ -25,6 +31,8 @@ let articles = [
     },
 ];
 router.get("/", function (req, res) {
+    const articles = db.prepare('SELECT * FROM ARTICLE').all();
+    console.log(articles);
     res.send(articles);
 });
 router.get('/:id', (req, res) => {
