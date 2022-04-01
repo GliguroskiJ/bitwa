@@ -32,14 +32,14 @@ let articles = [
 ];
 
 router.get("/", function (req, res) {
-    const article_getAll = db.prepare('SELECT * FROM ARTICLE').all();
+    const article_getAll = db.prepare('SELECT * FROM article').all();
 
     console.log(article_getAll);
     res.send(article_getAll);
 });
 router.get('/:id', (req, res) => {
     const id = req.params.id
-    const article_get = db.prepare('SELECT ID, TITLE, DATE, TEXT FROM ARTICLE WHERE ID = ?').get(id);
+    const article_get = db.prepare('SELECT id, title, date, text FROM article WHERE id = ?').get(id);
 
     console.log(article_get);
     res.send(article_get);
@@ -47,16 +47,16 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     const body = req.body;
     const article = {
-        IMAGE: body.image,
-        TITLE: body.title,
-        TEXT: body.text,
-        DATE: body.date
+        image: body.image,
+        title: body.title,
+        text: body.text,
+        date: body.date
     }
-    const article_get = db.prepare('INSERT INTO ARTICLE (IMAGE, TITLE, TEXT, DATE) VALUES (?, ?, ?, ?)');
+    const article_get = db.prepare('INSERT INTO article (image, title, text, date) VALUES (?, ?, ?, ?)');
 
-    article_get.run(article.IMAGE, article.TITLE, article.TEXT, article.DATE);
+    article_get.run(article.image, article.title, article.text, article.date);
     console.log(article_get);
-    res.send(article_get);
+    res.send(article);
 });
 router.patch("/:id", (req, res) => {
     const body = req.body;
@@ -77,7 +77,7 @@ router.patch("/:id", (req, res) => {
 });
 router.delete("/:id", (req, res) => {
     const id = req.params.id;
-    const article_delete = db.prepare('DELETE FROM ARTICLE WHERE ID = ?').run(id);
+    const article_delete = db.prepare('DELETE FROM article WHERE id = ?').run(id);
 
     console.log(article_delete);
     res.send(article_delete);
