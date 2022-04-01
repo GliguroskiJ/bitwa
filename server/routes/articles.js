@@ -30,6 +30,7 @@ let articles = [
         text: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit.`
     },
 ];
+
 router.get("/", function (req, res) {
     const article_getAll = db.prepare('SELECT * FROM ARTICLE').all();
 
