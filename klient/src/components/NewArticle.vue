@@ -30,7 +30,6 @@
             <button type="button" class="btn float-end btn-primary"><em class="bi-check"></em></button>
         </div>
     </div>
-
 </template>
 
 <script>
